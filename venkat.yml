@@ -1,0 +1,22 @@
+- name: Server setup playbook
+  hosts: all
+  become: yes
+  tasks:
+    - name: Install Apache
+      apt:
+        name: apache2
+        state: present
+      when: ansible_os_family == 'Debian'
+
+    - name: Create sample files
+      file:
+        path: "/tmp/{{ item }}"
+        state: touch
+      loop:
+        - file1.txt
+        - file2.txt
+
+    - name: Clone Git repo
+      git:
+        repo: 'https://github.com/venkatyourrepo/sample.git'
+        dest: /opt/sample-repo
