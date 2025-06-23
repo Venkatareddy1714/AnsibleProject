@@ -18,5 +18,5 @@
 
     - name: Clone Git repo
       git:
-        repo: 'https://github.com/venkatyourrepo/sample.git'
+        repo: 'https://github.com/VenkataReddy1417/AnsibleProject.git'
         dest: /opt/sample-repo
